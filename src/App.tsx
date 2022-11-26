@@ -1,6 +1,14 @@
 import CssBaseline from "@mui/material/CssBaseline";
 
+function getBlocks() {
+  fetch("https://proxy.cors.sh/https://api.up42.com/marketplace/blocks")
+    .then((response) => response.json())
+    .then(console.log);
+}
+
 function App() {
+  getBlocks();
+
   return (
     <div className="App">
       <CssBaseline />

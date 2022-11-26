@@ -20,4 +20,12 @@ It is also built on emotion, so it is easy to extend to custom styling where app
 
 ## Challenges
 
+### CORS error
+
+_Explain reverse proxy_
+
 ## Future Improvements
+
+### Filter on API
+
+The requirements were to filter by `blockPricingStrategy`. If this is a common usecase, it would make far more sense to provide this functionality as a part of the public API, rather than needing to do it on the frontend. If this is already implemented, then the documentation needs to be updated to reflect this. Obviously, there is potential for additional filter strategies in this way.
