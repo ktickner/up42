@@ -1,11 +1,11 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack";
-import Drawer from "@mui/material/Drawer";
 
 import { getBlocks } from "./data/up42";
 
 import { DisplayBlock } from "./components/Block";
 import { NavBar } from "./components/NavBar";
+import { CartDrawer } from "./components/CartDrawer";
 
 import * as S from "./App.styles";
 
@@ -23,9 +23,7 @@ function App() {
           ))}
         </Stack>
       </S.AppContainer>
-      <Drawer variant="permanent" open anchor="right">
-        hi
-      </Drawer>
+      <CartDrawer />
     </div>
   );
 }
