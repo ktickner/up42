@@ -18,6 +18,10 @@ It is also built on emotion, so it is easy to extend to custom styling where app
 
 ## Other Decisions
 
+### Context and useReducer
+
+In the case of userContext this is definitely overengineering, however taking into account the context of the app and how this would work in the real world, I could reasonably expect the complexity of this state to grow a lot over time. Therefore, it makes sense to set up the architecture to handle this complexity now.
+
 ## Challenges
 
 ### CORS error

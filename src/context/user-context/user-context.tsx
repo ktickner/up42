@@ -8,7 +8,7 @@ const UserContext = React.createContext<
   { state: State; dispatch: Dispatch } | undefined
 >(undefined);
 
-const initialState = { userCredits: 10000 };
+const initialState = { userCredits: 10 };
 
 function UserProvider({ children }: UserProviderProps) {
   const [state, dispatch] = React.useReducer(userReducer, initialState);

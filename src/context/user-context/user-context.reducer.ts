@@ -7,7 +7,7 @@ export function userReducer(state: State, action: Action) {
       const cost = action.payload;
 
       if (currentCredits < cost) {
-        return state;
+        throw new Error("insufficient credits");
       }
 
       return { userCredits: currentCredits - cost };
