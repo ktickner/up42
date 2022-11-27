@@ -22,7 +22,7 @@ function useCart() {
   const context = React.useContext(CartContext);
 
   if (context === undefined) {
-    throw new Error("useCount must be used within a CartProvider");
+    throw new Error("useCart must be used within a CartProvider");
   }
 
   return context;
