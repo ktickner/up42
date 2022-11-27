@@ -1,0 +1,24 @@
+import type { State, Action } from "./cart-context.types";
+
+export function cartReducer(state: State, action: Action) {
+  switch (action.type) {
+    case "add-block": {
+      const currentBlocks = state.blocks;
+      const newBlock = action.payload;
+
+      if (currentBlocks.find((block) => block.id === newBlock.id)) {
+        return state;
+      }
+
+      const newTotal =
+        state.totalCost + newBlock.metadata.blockPricingStrategy.credits;
+
+      return { blocks: [...currentBlocks, newBlock], totalCost: newTotal };
+    }
+    default: {
+      throw new Error(
+        `Unhandled action type: ${(action as { type: string }).type}`
+      );
+    }
+  }
+}
