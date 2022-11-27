@@ -4,6 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 import { getBlocks } from "./data/up42";
 import type { Block } from "./data/up42/types";
@@ -20,6 +21,7 @@ import * as S from "./App.styles";
 function App() {
   const [blocks, setBlocks] = React.useState<Block[]>([]);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [hasError, setHasError] = React.useState<boolean>(false);
 
   async function getBlocksWithSimplePricing() {
     setIsLoading(true);
@@ -29,7 +31,10 @@ function App() {
 
       setBlocks(blocks);
       setIsLoading(false);
-    } catch (error) {}
+    } catch (err) {
+      setHasError(true);
+      setIsLoading(false);
+    }
   }
 
   React.useEffect(() => {
@@ -48,6 +53,15 @@ function App() {
                 <CircularProgress />
                 <Typography>Loading blocks...</Typography>
               </S.LoadingContainer>
+            ) : hasError ? (
+              <S.ErrorContainer>
+                <ErrorOutlineIcon color="error" fontSize="large" />
+                <Typography textAlign="center">
+                  Oh snap, something went wrong on the server. You may have been
+                  rate limited. <br />
+                  Maybe try again later.
+                </Typography>
+              </S.ErrorContainer>
             ) : (
               <Stack
                 direction="row"

@@ -3,8 +3,10 @@ import type { getBlocksFilters } from "./types";
 const BLOCKS_URL =
   "https://proxy.cors.sh/https://api.up42.com/marketplace/blocks";
 
-export function fetchBlocks() {
-  return fetch(BLOCKS_URL).then((response) => response.json());
+export async function fetchBlocks() {
+  const response = await fetch(BLOCKS_URL);
+
+  return response.json();
 }
 
 export function getBlocks({ pricingStrategy }: getBlocksFilters) {
