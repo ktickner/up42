@@ -19,6 +19,20 @@ export function cartReducer(state: State, action: Action) {
         totalCost: newTotal,
       };
     }
+    case "remove-block": {
+      const removeIndex = state.blocks.findIndex(
+        (block) => block.id === action.payload
+      );
+
+      const newTotal =
+        state.totalCost -
+        state.blocks[removeIndex].metadata.blockPricingStrategy.credits;
+
+      const newBlocks = [...state.blocks];
+      newBlocks.splice(removeIndex, 1);
+
+      return { ...state, blocks: [...newBlocks], totalCost: newTotal };
+    }
     case "clear": {
       return { ...state, blocks: [], totalCost: 0 };
     }
