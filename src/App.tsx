@@ -1,14 +1,13 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Drawer from "@mui/material/Drawer";
 
 import { getBlocks } from "./data/up42";
 
 import { DisplayBlock } from "./components/Block";
+import { NavBar } from "./components/NavBar";
+
+import * as S from "./App.styles";
 
 function App() {
   const blocks = getBlocks({ pricingStrategy: "simple" });
@@ -16,20 +15,14 @@ function App() {
   return (
     <div>
       <CssBaseline />
-      <AppBar>
-        <Toolbar>
-          <Container>
-            <Typography>Credits: 10.000</Typography>
-          </Container>
-        </Toolbar>
-      </AppBar>
-      <Container>
-        <Stack direction="row" flexWrap="wrap" justifyContent="space-around">
+      <NavBar />
+      <S.AppContainer>
+        <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={4}>
           {blocks.map((block) => (
-            <DisplayBlock block={block} />
+            <DisplayBlock key={block.id} block={block} />
           ))}
         </Stack>
-      </Container>
+      </S.AppContainer>
       <Drawer variant="permanent" open anchor="right">
         hi
       </Drawer>

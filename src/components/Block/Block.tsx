@@ -17,7 +17,9 @@ const DisplayBlock: React.FC<BlockProps> = ({ block }) => {
       <Typography fontWeight={700}>
         {block.metadata.blockPricingStrategy.credits} credits
       </Typography>
-      <Button fullWidth>Add to cart</Button>
+      <Button variant="contained" fullWidth>
+        Add to cart
+      </Button>
     </S.BlockContainer>
   );
 };
