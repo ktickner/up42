@@ -8,7 +8,7 @@ const CartContext = React.createContext<
   { state: State; dispatch: Dispatch } | undefined
 >(undefined);
 
-const initialState = { blocks: [], totalCost: 0 };
+const initialState = { blocks: [], totalCost: 0, isOpen: false };
 
 function CartProvider({ children }: CartProviderProps) {
   const [state, dispatch] = React.useReducer(cartReducer, initialState);

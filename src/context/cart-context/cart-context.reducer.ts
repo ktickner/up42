@@ -13,7 +13,17 @@ export function cartReducer(state: State, action: Action) {
       const newTotal =
         state.totalCost + newBlock.metadata.blockPricingStrategy.credits;
 
-      return { blocks: [...currentBlocks, newBlock], totalCost: newTotal };
+      return {
+        ...state,
+        blocks: [...currentBlocks, newBlock],
+        totalCost: newTotal,
+      };
+    }
+    case "open": {
+      return { ...state, isOpen: true };
+    }
+    case "close": {
+      return { ...state, isOpen: false };
     }
     default: {
       throw new Error(

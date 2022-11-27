@@ -32,8 +32,8 @@ function App() {
                 <DisplayBlock key={block.id} block={block} />
               ))}
             </Stack>
+            <CartDrawer />
           </S.AppContainer>
-          <CartDrawer />
         </CartProvider>
       </UserProvider>
     </div>

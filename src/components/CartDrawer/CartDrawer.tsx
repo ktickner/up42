@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import Drawer from "@mui/material/Drawer";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
@@ -16,7 +15,7 @@ const CartDrawer: React.FC = () => {
   const { state } = useCart();
 
   return (
-    <Drawer variant="permanent" open anchor="right">
+    <S.Drawer variant="persistent" open={state.isOpen} anchor="right">
       <S.DrawerContainer>
         <Typography variant="h5">Cart</Typography>
         <Stack flex="1" divider={<Divider />}>
@@ -33,7 +32,7 @@ const CartDrawer: React.FC = () => {
           Buy now
         </Button>
       </S.DrawerContainer>
-    </Drawer>
+    </S.Drawer>
   );
 };
 
