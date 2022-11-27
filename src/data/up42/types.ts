@@ -33,3 +33,7 @@ export interface Block {
   isPublicVersion: boolean;
   manifestVersion: number;
 }
+
+export interface getBlocksFilters {
+  pricingStrategy: string;
+}
