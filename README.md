@@ -24,6 +24,8 @@ It is also built on emotion, so it is easy to extend to custom styling where app
 
 _Explain reverse proxy_
 
+Appears to be heavily rate limited
+
 ## Future Improvements
 
 ### Filter on API
