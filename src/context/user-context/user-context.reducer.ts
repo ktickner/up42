@@ -6,7 +6,7 @@ export function userReducer(state: State, action: Action) {
       const currentCredits = state.userCredits;
       const cost = action.payload;
 
-      if (currentCredits > cost) {
+      if (currentCredits < cost) {
         return state;
       }
 

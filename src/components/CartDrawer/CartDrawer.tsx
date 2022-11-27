@@ -6,13 +6,20 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 import { useCart } from "../../context/cart-context";
+import { useUser } from "../../context/user-context";
 
 import { CartItem } from "./components/CartItem";
 
 import * as S from "./CartDrawer.styles";
 
 const CartDrawer: React.FC = () => {
-  const { state } = useCart();
+  const { state, dispatch: cartDispatch } = useCart();
+  const { dispatch: userDispatch } = useUser();
+
+  function handleBuyNowClick() {
+    userDispatch({ type: "remove-credits", payload: state.totalCost });
+    cartDispatch({ type: "clear" });
+  }
 
   return (
     <S.Drawer variant="persistent" open={state.isOpen} anchor="right">
@@ -28,7 +35,7 @@ const CartDrawer: React.FC = () => {
           <Typography>Total:</Typography>
           <Typography fontWeight={700}>{state.totalCost} credits</Typography>
         </Stack>
-        <Button fullWidth variant="contained">
+        <Button fullWidth variant="contained" onClick={handleBuyNowClick}>
           Buy now
         </Button>
       </S.DrawerContainer>

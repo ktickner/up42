@@ -19,6 +19,9 @@ export function cartReducer(state: State, action: Action) {
         totalCost: newTotal,
       };
     }
+    case "clear": {
+      return { ...state, blocks: [], totalCost: 0 };
+    }
     case "open": {
       return { ...state, isOpen: true };
     }
