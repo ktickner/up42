@@ -16,10 +16,6 @@ Just a super simple way to get started, so I bootstrapped using this.
 Feature rich, themeable UI library. I chose this as I have used it in the past so I am familiar, it's fairly feature complete, and stable.
 It is also built on emotion, so it is easy to extend to custom styling where appropriate.
 
-### React Testing Library
-
-Convenience layer for testing react components specifically. It's an obvious choice for effectively testing react applications.
-
 ## Other Decisions
 
 ### Context and useReducer
@@ -45,3 +41,10 @@ The requirements were to filter by `blockPricingStrategy`. If this is a common u
 ### Number indicator on cart
 
 Currently there is no indication that the shopping cart includes any items. This could be improved as an easy to implement UX improvement.
+
+### Tests
+
+I realise I asked explicitly if this was a requirement. Unfortunately, as I started to implement testing I hit a bit of a wall and the deadline has come so instead I will write a bit about it. Although I have some experience with component testing (using React testing library, which would be my go to), I have not had much reason to look into testing components which are driven by context, using reducer actions. \
+I have found very little in the way of documentation or guides on how to test things like, if a reducer action has been called, how to effectively mock these, or forcing a reducer action to ensure the component responds correctly to the changing state. \
+I think one workaround for this is to convert some components to be more `dumb`, meaning driven by props rather than the context itself. This kind of defeats the purpose of having the context in the first place, though, and I still would not be able to effectively test that reducer actions are being fired at the right time. \
+I would love to recieve any recommendations for where I could go to learn to solve these problems (more effectively than experimentation, which would potentially take quite a while), or real world examples, as I would like to know how to solve this problem in the future.
